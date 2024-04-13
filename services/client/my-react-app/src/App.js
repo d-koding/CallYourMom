@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import TolerancePage from './Tolerance';
 import LoginPage from './Login';
-import HomePage from './HomePage';
+import TolerancePage from './Tolerance';
 import NotFoundPage from './NotFoundPage';
-import ContactsPage from './ContactsPage'
 
 function App() {
   return (
@@ -12,9 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<LoginPage />} /> {/* Default route */}
-          <Route path="/Tolerance" element={<TolerancePage />} />
-          <Route path="/Contacts" element={<ContactsPage />} />
-          <Route path="/HomePage" element={<HomePage />} />
+          <Route exact path="/Tolerance" element={<TolerancePage />} /> {/* Initial Logins Route Here */}
           <Route path="*" element={<NotFoundPage />} /> {/* This route will be matched for any other route */}
         </Routes>
       </div>
