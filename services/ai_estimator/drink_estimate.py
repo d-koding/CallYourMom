@@ -36,7 +36,7 @@ def main(filepath, weight_kg, height_m):
     data = load_data(filepath)
     model = train_model(data)
     drinks = predict_drink_tolerance(model, weight_kg, height_m)
-    print(f'Based on BMI, estimated tolerance is: {drinks:.2f} drinks')
+    print(f'Based on your demographics, you should have at most: {drinks:.2f} drinks')
 
 # Example usage
 if __name__ == "__main__":
