@@ -6,6 +6,7 @@ import './App.css'; // Import the app.css file
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   // Initialize useNavigate hook
@@ -13,13 +14,10 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Figure out backend stuff! 
-    // Use temporary email and password for now to do login for demo
     if (email === 'example@example.com' && password === 'password') {
       setIsLoggedIn(true);
       alert('Login successful!');
-      // Go to events page when logged in for now, create separate homepage in the future(?)
-      navigate('/events');
+      navigate('/tolerance');
     } else {
       alert('Invalid email or password');
     }
@@ -36,6 +34,10 @@ function Login() {
         <label>
           Password:
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label>
+        <label>
+          Name:
+          <input type="name" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <button type="submit">Login</button>
       </form>
