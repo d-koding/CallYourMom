@@ -1,48 +1,55 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import './App.css'; // Import the app.css file
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
-  // Initialize useNavigate hook
-  const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (email === 'example@example.com' && password === 'password') {
-      setIsLoggedIn(true);
-      alert('Login successful!');
-      navigate('/tolerance');
-    } else {
-      alert('Invalid email or password');
-    }
-  };
+    const handleLogin = async (e) => {
+        e.preventDefault();
 
-  return (
-    <div className="login-container"> {/* Add the login-container class here */}
-      <h2>Login</h2>
-      <form className="login-form" onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <label>
-          Name:
-          <input type="name" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+        // Send POST request to Flask backend
+        try {
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Login successful!');
+                navigate('/tolerance'); // Navigate on successful login
+            } else {
+                alert('Invalid email or password');
+            }
+        } catch (error) {
+            alert('Login failed. Please try again later.');
+            console.error('There was an error!', error);
+        }
+    };
+
+    return (
+        <div className="login-container">
+            <h2>Login</h2>
+            <form className="login-form" onSubmit={handleLogin}>
+                <label>
+                    Email:
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </label>
+                <label>
+                    Password:
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </label>
+                <button type="submit">Login</button>
+                <button type="button" onClick={() => navigate('/register')}>Register</button>
+            </form>
+        </div>
+    );
 }
 
 export default Login;
