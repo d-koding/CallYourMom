@@ -16,6 +16,19 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    profile = db.relationship('UserProfile', back_populates='user', uselist=False, lazy=True)
+
+class UserProfile(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True)
+    weight = db.Column(db.Float)
+    height = db.Column(db.Float)
+    age = db.Column(db.Integer)
+    ethnicity = db.Column(db.String(100))
+    user = db.relationship('User', back_populates='profile')
+
+
+
 
 # Create the SQLite database and tables
 with app.app_context():
@@ -24,12 +37,10 @@ with app.app_context():
 # Route for user registration
 @app.route('/register', methods=['POST'])
 def register():
-    print("starting")
     data = request.json
     name = data.get('name')
     email = data.get('email')
     password = data.get('password')
-    print("got data")
 
     if not (name and email and password):
         return jsonify({'message': 'All fields are required'}), 400
@@ -41,17 +52,28 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
+    # Create UserProfile with default values
+    new_profile = UserProfile(user_id=new_user.id, weight=None, height=None, age=None, ethnicity=None)
+    db.session.add(new_profile)
+    db.session.commit()
+
     return jsonify({'message': 'User registered successfully!'}), 201
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
-    user = User.query.filter_by(email=data['email']).first()
-    
-    if user and user.password == data['password']:
-        return jsonify({'success': True}), 200
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({'message': 'Both email and password are required'}), 400
+
+    user = User.query.filter_by(email=email).first()
+    if user and user.password == password:
+        return jsonify({'success': True, 'message': 'Login successful!'}), 200
     else:
-        return jsonify({'success': False}), 401
+        return jsonify({'success': False, 'message': 'Invalid credentials'}), 401
+
 
 # Start the Flask application
 if __name__ == '__main__':

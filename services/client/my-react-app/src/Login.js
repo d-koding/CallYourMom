@@ -23,7 +23,8 @@ function Login() {
 
             if (data.success) {
                 alert('Login successful!');
-                navigate('/tolerance'); // Navigate on successful login
+                // Optionally fetch more user data here if needed
+                navigate('/tolerance'); // Navigate to a profile or dashboard page
             } else {
                 alert('Invalid email or password');
             }
