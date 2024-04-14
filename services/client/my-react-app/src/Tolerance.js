@@ -30,6 +30,7 @@ function Tolerance() {
       
       const resultData = await response.json();
       setResults(resultData);
+      navigate('/main')
        // Navigate to a summary or thank you page if needed
     } catch (error) {
       console.error('Processing failed:', error);
