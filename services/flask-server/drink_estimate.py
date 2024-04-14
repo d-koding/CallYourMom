@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # Load data from an Excel file
 def load_data(filepath):
-    return pd.read_csv('bmi.csv')
+    return pd.read_csv('morepoints.csv')
 
 # Train a Linear Regression model
 def train_model(data):
