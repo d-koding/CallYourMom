@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import EmergencyContactForm from './emergencyContact';
+import EmergencyContactForm from './components/emergencyContact';
 
 function Main() {
     return (
