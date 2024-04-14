@@ -94,11 +94,12 @@ def update_profile(user_id):
 @app.route('/process-data', methods=['POST'])
 def process_data():
     data = request.json
-   
+    weight = int(data.get('weight'))
+    height = int(data.get('height')) / 100
 
-    # bmi = weight / ((height) ** 2)
+    bmi = weight / ((height) ** 2)
 
-    drinks = "5"
+    drinks = "f"
 
     processed_message = f"Based on your BMI, we think you can take " + drinks + " many drinks today"
     return jsonify({'message': processed_message}), 200
