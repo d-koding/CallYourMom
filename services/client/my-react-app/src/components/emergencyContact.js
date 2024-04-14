@@ -1,3 +1,5 @@
+import React, {useState} from 'react';
+
 function EmergencyContactForm() {
     const [showForm, setShowForm] = useState(false);
     const [contact, setContact] = useState({ name: '', phone: '', relationship: '' });
