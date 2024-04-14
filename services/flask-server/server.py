@@ -98,7 +98,7 @@ def process_data():
     height = int(data.get('height')) / 100
 
     bmi = weight / ((height) ** 2)
-    data2 = load_data('bmi.csv')
+    data2 = load_data('morepoints.csv')
     print(data2)
     model = train_model(data2)
     drinks = round(predict_drink_tolerance(model, bmi, height))
