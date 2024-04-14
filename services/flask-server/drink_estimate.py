@@ -23,7 +23,7 @@ def train_model(data):
 
 # Calculate BMI from weight and height
 def calculate_bmi(weight_kg, height_m):
-    return weight_kg / (height_m ** 2)
+    return weight_kg / (height_m  ** 2)
 
 # Predict drink tolerance and convert to drink types
 def predict_drink_tolerance(model, weight_kg, height_m):

@@ -1,60 +1,62 @@
-// TODO: style the tolerance survey page
-// TODO: Create a summary page to display user input after submission
-// TODO: Enhance user input fields with more interactive elements
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import './App.css'; // Import the app.css file
+import { useNavigate } from 'react-router-dom';
 
 function Tolerance() {
-  const [tolerance, setTolerance] = useState(5); // Default the slider to a mid-value of 5
+  const [tolerance, setTolerance] = useState(5); // This can be removed if not needed
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
-  const [age, setAge] = useState('');
-  const [ethnicity, setEthnicity] = useState('');
+  const [results, setResults] = useState(null);  // To store and display results
 
-  // Initialize useNavigate hook
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement validation and backend integration
-    alert(`Submitted with Tolerance: ${tolerance}, Weight: ${weight}, Height: ${height}, Age: ${age}, Ethnicity: ${ethnicity}`);
-    // TODO: Navigate to a summary or thank you page
+    if (!weight && !height) {
+      alert('Please enter at least weight or height to proceed.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/process-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ weight, height })
+      });
+
+      if (!response.ok) throw new Error('Failed to process data');
+      
+      const resultData = await response.json();
+      setResults(resultData);
+      // navigate('/summary'); // Navigate to a summary or thank you page if needed
+    } catch (error) {
+      console.error('Processing failed:', error);
+      alert('Processing failed. Please try again later.');
+    }
   };
 
   return (
-    <div className="survey-container"> {/* Add survey-container class for styling */}
+    <div className="survey-container">
       <h2>Alcohol Tolerance Survey</h2>
       <form className="survey-form" onSubmit={handleSubmit}>
         <label>
-          How would you rate your alcohol tolerance?
-          <input type="range" min="1" max="10" value={tolerance} onChange={(e) => setTolerance(e.target.value)} />
-          <span>{tolerance}</span>/10
-        </label>
-        <br />
-        <label>
           Weight (kg):
-          <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Enter your weight (optional)" />
+          <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Enter your weight" required />
         </label>
         <br />
         <label>
           Height (cm):
-          <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} placeholder="Enter your height (optional)" />
-        </label>
-        <br />
-        <label>
-          Age:
-          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Enter your age (optional)" />
-        </label>
-        <br />
-        <label>
-          Ethnicity:
-          <input type="text" value={ethnicity} onChange={(e) => setEthnicity(e.target.value)} placeholder="Enter your ethnicity (optional)" />
+          <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} placeholder="Enter your height" required />
         </label>
         <br />
         <button type="submit">Submit</button>
       </form>
+      {results && (
+        <div className="results">
+          <p>{results.message}</p>  // Display any message or result from the backend
+        </div>
+      )}
     </div>
   );
 }

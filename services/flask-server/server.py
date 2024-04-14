@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from drink_estimate import *
 
 app = Flask(__name__)
 CORS(app)
@@ -73,6 +74,39 @@ def login():
         return jsonify({'success': True, 'message': 'Login successful!'}), 200
     else:
         return jsonify({'success': False, 'message': 'Invalid credentials'}), 401
+
+# Flask endpoint to update user profile
+@app.route('/update-profile/<int:user_id>', methods=['POST'])
+def update_profile(user_id):
+    data = request.json
+    user_profile = UserProfile.query.filter_by(user_id=user_id).first()
+    if not user_profile:
+        return jsonify({'message': 'User profile not found'}), 404
+
+    user_profile.weight = data.get('weight', user_profile.weight)
+    user_profile.height = data.get('height', user_profile.height)
+    user_profile.age = data.get('age', user_profile.age)
+    user_profile.ethnicity = data.get('ethnicity', user_profile.ethnicity)
+    
+    db.session.commit()
+    return jsonify({'message': 'Profile updated successfully'}), 200
+
+@app.route('/process-data', methods=['POST'])
+def process_data():
+    data = request.json
+    weight = int(data.get('weight'))
+    height = int(data.get('height')) / 100
+
+    bmi = weight / ((height) ** 2)
+
+    # Dummy processing logic; replace with your actual data processing
+    data = load_data(filepath)
+    model = train_model(data)
+    drinks = predict_drink_tolerance(model, bmi, height)
+
+    processed_message = f"Based on your BMI, we think you can take " + drinks + " many drinks today"
+    return jsonify({'message': processed_message}), 200
+
 
 
 # Start the Flask application
