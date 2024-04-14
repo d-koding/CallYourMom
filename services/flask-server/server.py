@@ -100,7 +100,7 @@ def process_data():
     bmi = weight / ((height) ** 2)
 
     # Dummy processing logic; replace with your actual data processing
-    data = load_data('/Users/dylanoconnor/downloads/bmiattempt2.xlsx')
+    data = load_data('bmi.csv')
     model = train_model(data)
     drinks = predict_drink_tolerance(model, bmi, height)
 
