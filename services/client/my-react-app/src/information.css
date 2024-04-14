@@ -1,50 +1,53 @@
-/* information.css */
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
+/* Basic styles for the information container */
 .info-container {
-    position: relative;
-    width: 430px;
-    height: 932px;
-    margin: auto;
-    background: #643A99;
-    font-family: 'Khula', sans-serif; /* Ensure the 'Khula' font is included in your project */
-    color: #FFFFFF;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #E0DCE5; /* Soft purple background */
+    color: #5E5865; /* Darker purple for text */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* General paragraph styling for informational text */
+/* Styling for the header to make it prominent */
+h1 {
+    color: #643A99; /* Deep purple for headers */
+    font-size: 2rem; /* Larger font size for header */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Paragraph styling for clear, readable text */
 .info-paragraph {
-    position: absolute;
-    width: 333px;
-    height: 100px;
-    left: calc(50% - 333px/2 - 0.5px);
-    top: 204px;
-    font-size: 17px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 1.6;
     text-align: center;
+    max-width: 600px;
+    margin-bottom: 30px; /* Adequate spacing between text and button */
 }
 
-/* Button Styling */
+/* Bold text within paragraphs for emphasis */
+b {
+    color: #8556C2; /* Lighter, eye-catching purple for emphasis */
+    font-weight: bold;
+}
+
+/* Styling the navigation button */
 .next-button {
-    position: absolute;
-    width: 149px;
-    height: 38px;
-    bottom: 123px; /* Adjusted to be near the bottom of the container */
-    left: 50%; /* Center button */
-    transform: translateX(-50%); /* Center button horizontally */
-    background: #D9D9D9;
-    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #8556C2; /* Consistent purple theme for buttons */
     border: none;
-    border-radius: 18px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for hover effects */
 }
 
+/* Hover effect for the button */
 .next-button:hover {
-    background-color: #bbb; /* Slight hover effect for visual feedback */
+    background-color: #673AB7; /* A darker shade of purple when hovered */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
