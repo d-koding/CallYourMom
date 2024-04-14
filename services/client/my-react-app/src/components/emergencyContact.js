@@ -28,11 +28,38 @@ function EmergencyContactForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
+        // API endpoint where the Flask app is listening
+        const apiUrl = 'http://localhost:5000/emergency-contacts'; // adjust if necessary
+        const user_id = 1; // replace with the actual user ID obtained after login
+    
+        // Construct the payload with the user ID and contacts array
+        const payload = {
+            user_id: user_id,
+            contacts: contacts
+        };
         console.log('Submitting Contacts', contacts);
-        // Here you can integrate an API to send the data to your backend
-        setShowForm(false);
+        // Make a POST request to the Flask API
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success
+            setShowForm(false);  // Hide the form after successful submission
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Handle errors here
+        });
         navigate('/startDrinking');
-    };
+    };    
+
 
     return (
         <div className="form-container">
