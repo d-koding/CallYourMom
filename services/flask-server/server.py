@@ -101,7 +101,7 @@ def process_data():
     data2 = load_data('bmi.csv')
     print(data2)
     model = train_model(data2)
-    drinks = round(predict_drink_tolerance(model, weight, height))
+    drinks = round(predict_drink_tolerance(model, bmi, height))
     print("this shit is working")
 
 
