@@ -105,7 +105,7 @@ def process_data():
     print("this shit is working")
 
 
-    processed_message = f"Based on your BMI, we think you can take " + str(drinks) + " many drinks today"
+    processed_message = f"" + str(drinks) + ""
     return jsonify({'message': processed_message}), 200
 
 

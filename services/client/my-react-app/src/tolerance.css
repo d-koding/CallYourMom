@@ -1,57 +1,64 @@
+/* tolerance.css */
+
 .survey-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-  }
-  
-  .survey-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    background-color: #643A99; /* Adjust the color to match your theme */
   }
   
   .survey-form {
-    width: 300px;
+    background-color: #643A99; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the form */
+    padding: 40px;
+    margin: 20px;
+    width: 90%; /* Adjust the width as per your design */
+    max-width: 400px; /* Maximum width */
   }
   
-  .form-group {
-    margin-bottom: 1rem;
+  .survey-form h2 {
+    color: white;
+    margin-bottom: 30px; /* Space below the heading */
   }
   
-  .form-label {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  .survey-form label {
+    display: block;
+    margin-bottom: 20px; /* Space between label and input field */
   }
   
-  .form-input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    width: 100%;
+  .survey-form input[type='number'] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input field */
+    margin-top: 5px; /* Space above the input field */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Shadow for input field */
   }
   
-  .submit-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+  .survey-form button {
+    padding: 10px 25px;
+    background-color: white; /* Button background color */
+    color: #643A99; /* Text color */
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 20px; /* Rounded corners */
     cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
+    margin-top: 20px; /* Space above the button */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Font weight */
+    width: 100%; /* Full width */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Shadow for button */
   }
   
-  .submit-button:hover {
-    opacity: 0.8;
+  /* Add styles for focus and hover states for input fields and buttons for better user experience */
+  .survey-form input[type='number']:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8); /* Focus state shadow */
   }
   
-  .results {
-    margin-top: 1rem;
-  }
-  
-  .results-message {
-    font-size: 1rem;
-    color: #007bff;
+  .survey-form button:hover {
+    background-color: #7d6aad; /* Slightly lighter purple for hover state */
   }
   

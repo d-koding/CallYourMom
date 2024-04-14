@@ -1,0 +1,89 @@
+/* emergencycontact.css */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #643A99; /* The purple background color from the image */
+  font-family: 'Arial', sans-serif; /* Replace with the actual font used in the image */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.toggle-form-button {
+  background-color: white;
+  color: #643A99;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.contact-form {
+  width: 90%;
+  max-width: 500px; /* Or set the width according to the image */
+}
+
+.input-group {
+  background-color: white;
+  border-radius: 25px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the input fields */
+}
+
+.input-field {
+  border: none;
+  border-radius: 20px;
+  margin: 8px 0; /* Space between input fields */
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow to give an inset effect */
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: #999; /* Placeholder text color, similar to the image */
+}
+
+.submit-button {
+  background-color: white;
+  color: #643A99;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust the button's hover effect */
+.submit-button:hover {
+  background-color: #e6e6e6; /* Light grey background for hover state */
+}
+
+/* Add transitions for interactive elements */
+.toggle-form-button,
+.input-field,
+.submit-button {
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+/* Style the button when it's focused or active */
+.toggle-form-button:focus,
+.toggle-form-button:active,
+.submit-button:focus,
+.submit-button:active {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #643A99; /* Focus ring effect */
+}
