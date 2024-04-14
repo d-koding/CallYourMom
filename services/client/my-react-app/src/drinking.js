@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './drinking.css'; // Ensure this is the correct path to your CSS file
-import report from './report.png';
+// import report from './report.png';
+// import emergencyContactLogo from './emergencyContactLogo.png'
 
 function Drinking() {
     const navigate = useNavigate();
@@ -39,9 +40,9 @@ function Drinking() {
                 <button className="button" onClick={handleDecrement}>-</button>
             </div>
             <button onClick={handleStart} class="stop-button">Stop Drinking</button>
-            <button className="corner-button right" onClick={contactEmergency}>
-  <img src={report}   /></button>
-            <button className="corner-button left" onClick={contactRideShare}>contact ride share</button>
+            <a href="https://www.uber.com/" className="corner-button right" onClick={contactEmergency}>Contact Ride Share</a>
+
+            <button className="corner-button left" onClick={contactRideShare}>Emergency Contact</button>
         </div>
     );
 }

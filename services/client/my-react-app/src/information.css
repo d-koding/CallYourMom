@@ -1,3 +1,10 @@
+/* Basic reset to remove padding, margin, and set box-sizing to border-box for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Basic styles for the information container */
 .info-container {
     display: flex;

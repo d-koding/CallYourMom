@@ -123,6 +123,8 @@
     bottom: 20px;
     padding: 10px 20px;
     font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px; /* Adjust as needed */
     cursor: pointer;
 }
 
@@ -133,7 +135,7 @@
 
 .corner-button.right {
     right: 20px;
-    
+    mix-blend-mode: screen;
 }
 
 /* ... other styles ... */
