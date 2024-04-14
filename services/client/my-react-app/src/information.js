@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import "./information.css";
+import "./information.css";
 
 function Information() {
     const navigate = useNavigate();
@@ -10,9 +10,9 @@ function Information() {
     };
 
     return (
-        <div className="drinking-container">
+        <div className="info-container">
             <h1>Informational Disclosure</h1>
-            <p>
+            <p class="info-paragraph">
                 One drink, as defined by the <b>National Institute of Alcohol Abuse and Alcoholism</b>, can look like:
                 <br />
                 <br />
@@ -25,7 +25,7 @@ function Information() {
                 - One 1.5 fl oz shot of 40% liquor
                 <br />
             </p>
-            <button onClick={handleStart}>
+            <button onClick={handleStart} class="next-button">
                 Next Page
             </button>
         </div>

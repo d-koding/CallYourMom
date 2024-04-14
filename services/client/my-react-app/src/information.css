@@ -6,10 +6,10 @@ body, html {
     height: 100%;
 }
 
-.drinking-container {
+.info-container {
     position: relative;
-    /* width: 430px;
-    height: 932px; */
+    width: 430px;
+    height: 932px;
     margin: auto;
     background: #643A99;
     font-family: 'Khula', sans-serif; /* Ensure the 'Khula' font is included in your project */
@@ -18,7 +18,7 @@ body, html {
 }
 
 /* General paragraph styling for informational text */
-p {
+.info-paragraph {
     position: absolute;
     width: 333px;
     height: 100px;
@@ -30,7 +30,7 @@ p {
 }
 
 /* Button Styling */
-button {
+.next-button {
     position: absolute;
     width: 149px;
     height: 38px;
@@ -45,6 +45,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.next-button:hover {
     background-color: #bbb; /* Slight hover effect for visual feedback */
 }
