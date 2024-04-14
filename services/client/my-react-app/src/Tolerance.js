@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './tolerance.css';
 
 function Tolerance() {
   const [tolerance, setTolerance] = useState(5); // This can be removed if not needed
@@ -29,7 +30,7 @@ function Tolerance() {
       
       const resultData = await response.json();
       setResults(resultData);
-      navigate('/main'); // Navigate to a summary or thank you page if needed
+       // Navigate to a summary or thank you page if needed
     } catch (error) {
       console.error('Processing failed:', error);
       alert('Processing failed. Please try again later.');
