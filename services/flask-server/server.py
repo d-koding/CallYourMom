@@ -7,7 +7,6 @@ app = Flask(__name__)
 CORS(app)
 
 # Configurations
-CORS(app, resources={r"*": {"origins": "http://localhost:3000"}})
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -29,13 +28,6 @@ class UserProfile(db.Model):
     ethnicity = db.Column(db.String(100))
     user = db.relationship('User', back_populates='profile')
 
-class EmergencyContact(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    name = db.Column(db.String(100), nullable=False)
-    phone = db.Column(db.String(100), nullable=False)
-
-    user = db.relationship('User', backref=db.backref('emergency_contacts', lazy=True))
 
 
 
@@ -102,15 +94,11 @@ def update_profile(user_id):
 @app.route('/process-data', methods=['POST'])
 def process_data():
     data = request.json
-    user_id = data.get('user_id')  # This line fetches the user_id from the request
-    if not user_id:
-        return jsonify({'message': 'User ID is required'}), 400
-    
     weight = int(data.get('weight'))
     height = int(data.get('height')) / 100
 
     bmi = weight / ((height) ** 2)
-    data2 = load_data('morepoints.csv')
+    data2 = load_data('bmi.csv')
     print(data2)
     model = train_model(data2)
     drinks = round(predict_drink_tolerance(model, bmi, height))
@@ -119,25 +107,6 @@ def process_data():
 
     processed_message = f"" + str(drinks) + ""
     return jsonify({'message': processed_message}), 200
-
-# Keep track of user emergency contacts
-@app.route('/emergency-contacts', methods=['POST'])
-def emergency_contacts():
-    data = request.json
-    user_id = data.get('user_id')
-
-    contacts_data = data.get('contacts', [])
-    for contact_data in contacts_data:
-        # Here you would validate the contact data and create new EmergencyContact objects
-        contact = EmergencyContact(
-            user_id=user_id,
-            name=contact_data['name'],
-            phone=contact_data['phone'],
-        )
-        db.session.add(contact)
-
-    db.session.commit()
-    return jsonify({'message': 'Emergency contacts submitted successfully'}), 200
 
 
 
