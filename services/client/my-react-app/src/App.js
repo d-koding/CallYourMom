@@ -5,7 +5,7 @@ import TolerancePage from './Tolerance';
 import NotFoundPage from './NotFoundPage';
 import Register from './register';
 import Main from './main';
-import startDrinking from './startDrinking';
+import StartDrinking from './startDrinking';
 import './App.css';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/main" element={<Main />} />
-          <Route path="/startDrinking" element={<startDrinking />} />
+          <Route path="/startDrinking" element={<StartDrinking />} />
         </Routes>
       </div>
     </Router>

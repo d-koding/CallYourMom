@@ -31,7 +31,7 @@ function EmergencyContactForm() {
         console.log('Submitting Contacts', contacts);
         // Here you can integrate an API to send the data to your backend
         setShowForm(false);
-        navigate('./startDrinking');
+        navigate('/startDrinking');
     };
 
     return (
