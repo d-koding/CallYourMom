@@ -8,7 +8,7 @@ function StartDrinking() {
 
   const handleStart = () => {
     // Define what happens when the user clicks on "Start Drinking"
-    navigate('/start-drinking'); // Navigate to the 'start-drinking' route or whatever is appropriate
+    navigate('/drinking'); // Navigate to the 'start-drinking' route or whatever is appropriate
   };
 
   return (
