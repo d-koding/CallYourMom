@@ -110,14 +110,14 @@ def process_data():
     height = int(data.get('height')) / 100
 
     bmi = weight / ((height) ** 2)
-    data2 = load_data('bmi.csv')
+    data2 = load_data('morepoints.csv')
     print(data2)
     model = train_model(data2)
     drinks = round(predict_drink_tolerance(model, bmi, height))
     print("this shit is working")
 
 
-    processed_message = f"Based on your BMI, we think you can take " + str(drinks) + " many drinks today"
+    processed_message = f"" + str(drinks) + ""
     return jsonify({'message': processed_message}), 200
 
 # Keep track of user emergency contacts

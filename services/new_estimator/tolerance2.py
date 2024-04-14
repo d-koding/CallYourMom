@@ -23,7 +23,7 @@ def train_model(data):
 
 # Calculate BMI from weight and height
 def calculate_bmi(weight_kg, height_m):
-    return weight_kg / (height_m  ** 2)
+    return weight_kg / (height_m ** 2)
 
 # Predict drink tolerance and convert to drink types
 def predict_drink_tolerance(model, weight_kg, height_m):
@@ -36,9 +36,9 @@ def main(filepath, weight_kg, height_m):
     data = load_data(filepath)
     model = train_model(data)
     drinks = predict_drink_tolerance(model, weight_kg, height_m)
-    print(f'Based on your demographics, you should have at most: {drinks:.2f} drinks')
+    print(f'Based on BMI, your estimated tolerance is: {drinks:.2f} drinks')
 
 # Example usage
 if __name__ == "__main__":
-    filepath = '/Users/dylanoconnor/Desktop/bmiattempt2.xlsx'  # Replace with your actual file path
+    filepath = 'morepoints.csv'  # Replace with your actual file path
     main(filepath, 70, 1.75)  # Example person with 70 kg weight and 1.75 m height
