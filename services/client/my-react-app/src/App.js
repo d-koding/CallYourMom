@@ -4,6 +4,7 @@ import LoginPage from './Login';
 import TolerancePage from './Tolerance';
 import NotFoundPage from './NotFoundPage';
 import Register from './register'
+import './App.css';
 
 function App() {
   

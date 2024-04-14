@@ -1,0 +1,57 @@
+.survey-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .survey-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .survey-form {
+    width: 300px;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    width: 100%;
+  }
+  
+  .submit-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .submit-button:hover {
+    opacity: 0.8;
+  }
+  
+  .results {
+    margin-top: 1rem;
+  }
+  
+  .results-message {
+    font-size: 1rem;
+    color: #007bff;
+  }
+  

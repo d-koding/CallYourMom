@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # Load data from an Excel file
 def load_data(filepath):
-    return pd.read_excel('/Users/loan/Desktop/bmiattempt2.xlsx')
+    return pd.read_excel(filepath)
 
 # Train a Linear Regression model
 def train_model(data):
@@ -40,5 +40,5 @@ def main(filepath, weight_kg, height_m):
 
 # Example usage
 if __name__ == "__main__":
-    filepath = '/Users/loan/Desktop/bmiattempt2.xlsx'  # Replace with your actual file path
+    filepath = '/Users/dylanoconnor/Desktop/bmiattempt2.xlsx'  # Replace with your actual file path
     main(filepath, 70, 1.75)  # Example person with 70 kg weight and 1.75 m height

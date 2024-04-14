@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './register.css';
 
 function Register() {
     const [name, setName] = useState('');
@@ -44,24 +45,45 @@ function Register() {
 
     return (
         <div className="register-container">
-            <h2>Register</h2>
+            <h2 className="register-title">Register</h2>
             <form onSubmit={handleRegister}>
-                <label>
-                    Name:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </label>
-                <br />
-                <button type="submit">Register</button>
+                <div className="form-group">
+                    <label htmlFor="name" className="form-label">
+                        Name:
+                    </label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        className="form-input" 
+                        value={name} 
+                        onChange={(e) => setName(e.target.value)} 
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email" className="form-label">
+                        Email:
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        className="form-input" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password" className="form-label">
+                        Password:
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        className="form-input" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                </div>
+                <button type="submit" className="register-button">Register</button>
             </form>
         </div>
     );
