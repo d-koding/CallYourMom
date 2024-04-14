@@ -1,4 +1,5 @@
 .start-page-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,4 +45,26 @@
     width: 50px;
     height: auto;
   }
+
   
+  .slide-in-bubble {
+    position: absolute;
+    left: -300px; /* Start off-screen */
+    top: 20%; /* Adjust based on your layout */
+    background-color: #8556C2; /* Purple background */
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width: 250px; /* Adjust as needed */
+    animation: slideIn 0.5s forwards; /* Animation to slide in */
+  }
+  
+  @keyframes slideIn {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 20px; /* Where the bubble should stop */
+    }
+  }

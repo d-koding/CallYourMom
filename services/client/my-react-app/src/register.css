@@ -1,42 +1,61 @@
+/* register.css */
+
 .register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(180deg, #E0DCE5 0%, #5E5865 100%); /* Purple gradient */
+    color: white; /* Text color for better contrast */
+    font-family: 'Arial', sans-serif; /* Consistent font-family */
 }
 
 .register-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Larger title size */
+    margin-bottom: 1rem; /* Margin for spacing */
+    color: white; /* White text color */
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Spacing between form groups */
+    width: 100%; /* Full width for the form groups */
+    max-width: 300px; /* Max width to control the form size */
 }
 
 .form-label {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Label font size */
+    margin-bottom: 0.5rem; /* Spacing below the label */
+    color: white; /* White label color */
 }
 
 .form-input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
+    padding: 0.75rem; /* Padding inside input fields */
+    font-size: 1rem; /* Input text size */
+    border: none; /* Remove border */
+    border-radius: 0.5rem; /* Rounded corners for input fields */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #643A99; /* Text color similar to the theme */
+    width: 100%; /* Full width of the input field */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+    outline: none; /* Remove default focus outline */
 }
 
 .register-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
+    padding: 0.75rem 1rem; /* Padding inside the button */
+    font-size: 1rem; /* Button text size */
+    border: none; /* Remove border */
+    border-radius: 0.5rem; /* Rounded corners for button */
+    background-color: #8556C2; /* Purple background color for button */
+    color: white; /* White text color for button */
+    cursor: pointer; /* Cursor to pointer to indicate it's clickable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transition for interaction */
+    width: 100%; /* Full width of the button */
+    margin-top: 1rem; /* Spacing above the button */
 }
 
 .register-button:hover {
-    background-color: #0056b3;
+    background-color: #673AB7; /* A darker purple for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
 }

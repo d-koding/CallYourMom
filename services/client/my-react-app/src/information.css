@@ -1,0 +1,50 @@
+/* information.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.drinking-container {
+    position: relative;
+    /* width: 430px;
+    height: 932px; */
+    margin: auto;
+    background: #643A99;
+    font-family: 'Khula', sans-serif; /* Ensure the 'Khula' font is included in your project */
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* General paragraph styling for informational text */
+p {
+    position: absolute;
+    width: 333px;
+    height: 100px;
+    left: calc(50% - 333px/2 - 0.5px);
+    top: 204px;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+}
+
+/* Button Styling */
+button {
+    position: absolute;
+    width: 149px;
+    height: 38px;
+    bottom: 123px; /* Adjusted to be near the bottom of the container */
+    left: 50%; /* Center button */
+    transform: translateX(-50%); /* Center button horizontally */
+    background: #D9D9D9;
+    color: black;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bbb; /* Slight hover effect for visual feedback */
+}

@@ -28,7 +28,13 @@ class UserProfile(db.Model):
     ethnicity = db.Column(db.String(100))
     user = db.relationship('User', back_populates='profile')
 
+class EmergencyContact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    phone = db.Column(db.String(100), nullable=False)
 
+    user = db.relationship('User', backref=db.backref('emergency_contacts', lazy=True))
 
 
 # Create the SQLite database and tables
@@ -105,8 +111,27 @@ def process_data():
     print("this shit is working")
 
 
-    processed_message = f"" + str(drinks) + ""
+    processed_message = str(drinks)
+
     return jsonify({'message': processed_message}), 200
+
+@app.route('/emergency-contacts', methods=['POST'])
+def emergency_contacts():
+    data = request.json
+    user_id = data.get('user_id')
+
+    contacts_data = data.get('contacts', [])
+    for contact_data in contacts_data:
+        # Here you would validate the contact data and create new EmergencyContact objects
+        contact = EmergencyContact(
+            user_id=user_id,
+            name=contact_data['name'],
+            phone=contact_data['phone'],
+        )
+        db.session.add(contact)
+
+    db.session.commit()
+    return jsonify({'message': 'Emergency contacts submitted successfully'}), 200
 
 
 

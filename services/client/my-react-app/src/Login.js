@@ -25,7 +25,7 @@ function Login() {
             if (data.success) {
                 alert('Login successful!');
                 // Optionally fetch more user data here if needed
-                navigate('/tolerance'); // Navigate to a profile or dashboard page
+                navigate('/information'); // Navigate to a profile or dashboard page
             } else {
                 alert('Invalid email or password');
             }

@@ -4,15 +4,23 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(180deg, #E0DCE5 0%, #5E5865 100%); /* Purple gradient background */
+    color: white; /* White text for better contrast on purple background */
+    font-family: 'Arial', sans-serif; /* Consistent font-family */
 }
 
 .login-title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: white; /* White title */
 }
 
 .login-form {
     width: 300px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background for form */
+    padding: 2rem; /* Padding around the form */
+    border-radius: 1rem; /* Rounded corners for form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 .form-group {
@@ -22,34 +30,43 @@
 .form-label {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    color: white; /* White label text */
 }
 
 .form-input {
-    padding: 0.5rem;
+    padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
+    border: none; /* Remove default border */
+    border-radius: 0.5rem; /* Rounded corners for input fields */
     width: 100%;
+    background-color: #FFF; /* White input field background */
+    color: #5E5865; /* Input text color */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for an inset effect */
 }
 
 .login-button, .register-button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     font-size: 1rem;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem; /* More pronounced rounded corners for buttons */
     cursor: pointer;
+    margin-top: 1rem; /* Space above the button */
+    width: 100%; /* Full-width button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for buttons */
+    transition: background-color 0.3s; /* Transition for hover effect */
 }
 
 .login-button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #8556C2; /* Purple button background */
+    color: white;
 }
 
 .register-button {
-    background-color: #28a745;
-    color: #fff;
+    background-color: #673AB7; /* A different shade of purple for register button */
+    color: white;
 }
 
 .login-button:hover, .register-button:hover {
-    opacity: 0.8;
+    background-color: #5E5865; /* Darker purple on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow for "lifted" effect */
 }
